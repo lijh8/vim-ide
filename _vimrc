@@ -1,14 +1,13 @@
 
 " ~/.vimrc
 
-
 set autoindent
 set cursorline
 set expandtab
 set hlsearch
 set incsearch
 " select and copy: windows:shift+mouse, macOS:fn+mouse
-set mouse=a 
+set mouse=a
 set nowrapscan
 set number
 set shiftwidth=4
@@ -17,7 +16,7 @@ set updatetime=100
 filetype on
 syntax off
 
-autocmd CursorHold * execute 'match Search /\<' . escape(expand('<cword>'), '\/.*$^~[]') . '\>/'
+autocmd CursorHold * execute 'match Search' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
 
 "" Termdebug
 packadd termdebug
