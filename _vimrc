@@ -4,10 +4,12 @@
 set autoindent
 set cursorline
 set expandtab
+"" completion: Ctrl-p, Ctrl-n
+"" search: / n N * #
 set hlsearch
 set incsearch
-" select and copy: windows:shift+mouse, macOS:fn+mouse
-set mouse=a
+"" select and copy: windows:shift+mouse, macOS:fn+mouse
+set mouse=a 
 set nowrapscan
 set number
 set shiftwidth=4
@@ -16,6 +18,7 @@ set updatetime=100
 filetype on
 syntax off
 
+"" highlight occurrences of word under cursor and clear highlight when cursor is outside
 autocmd CursorHold * execute 'match Search' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
 
 "" Termdebug
@@ -34,13 +37,12 @@ nnoremap <F6> :NERDTreeToggle<CR>
 nnoremap <F7> :NERDTreeFind<CR>
 
 "" Tagbar
-" https://github.com/preservim/tagbar/issues/851
+"" https://github.com/preservim/tagbar/issues/851
 autocmd QuitPre * qall
 autocmd VimEnter * Tagbar
 let g:tagbar_sort = 0
 nnoremap <F8> :TagbarToggle<CR>
 
-"" gutentags: ctags: Ctrl-], Ctrl-t
-" $ mkdir ~/project_root_dir/.git
+"" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
+"" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
-
