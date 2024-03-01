@@ -29,8 +29,12 @@ nnoremap <C-k> mz:move-2<CR>`z
 vnoremap <C-j> :move'>+<CR>`<my`>mzgv`yo`z
 vnoremap <C-k> :move'<-2<CR>`>my`<mzgv`yo`z
 
-"" highlight occurrences of word under cursor and clear highlight when cursor is outside
+"" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
 autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '//') . '\>/' : '//')
+
+"" highlight occurrences of selected text
+"" search for any non-existing text to cancel the highlight
+vnoremap <expr> <CR> 'y:let @/ = "\\V" . substitute(escape(@", "/\\"), "\n", "\\n", "g") <bar> set hls<CR>'
 
 "" Termdebug
 packadd termdebug
@@ -57,4 +61,3 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
-
