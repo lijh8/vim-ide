@@ -30,7 +30,7 @@ vnoremap <C-j> :move'>+<CR>`<my`>mzgv`yo`z
 vnoremap <C-k> :move'<-2<CR>`>my`<mzgv`yo`z
 
 "" highlight occurrences of word under cursor and clear highlight when cursor is outside
-autocmd CursorMoved * execute 'match IncSearch' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
+autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '//') . '\>/' : '//')
 
 "" Termdebug
 packadd termdebug
