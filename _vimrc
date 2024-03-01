@@ -1,5 +1,4 @@
 
-
 " ~/.vimrc
 
 set autoindent
@@ -25,10 +24,10 @@ filetype on
 syntax off
 
 "" move line(s) up or down
-nnoremap <C-j> mz:move+<cr>`z
-nnoremap <C-k> mz:move-2<cr>`z
-vnoremap <C-j> :move'>+<cr>`<my`>mzgv`yo`z
-vnoremap <C-k> :move'<-2<cr>`>my`<mzgv`yo`z
+nnoremap <C-j> mz:move+<CR>`z
+nnoremap <C-k> mz:move-2<CR>`z
+vnoremap <C-j> :move'>+<CR>`<my`>mzgv`yo`z
+vnoremap <C-k> :move'<-2<CR>`>my`<mzgv`yo`z
 
 "" highlight occurrences of word under cursor and clear highlight when cursor is outside
 autocmd CursorMoved * execute 'match IncSearch' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
