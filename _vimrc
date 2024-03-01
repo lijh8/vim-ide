@@ -32,7 +32,7 @@ vnoremap <C-k> :move'<-2<CR>`>my`<mzgv`yo`z
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
 autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '//') . '\>/' : '//')
 
-"" highlight occurrences of selected text
+"" highlight occurrences of selected text in (v)isual mode, Enter to confirm
 "" search for any non-existing text to cancel the highlight
 vnoremap <expr> <CR> 'y:let @/ = "\\V" . substitute(escape(@", "/\\"), "\n", "\\n", "g") <bar> set hls<CR>'
 
