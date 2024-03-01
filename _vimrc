@@ -2,14 +2,24 @@
 " ~/.vimrc
 
 set autoindent
+set colorcolumn=72
 set cursorline
 set expandtab
+
 "" completion: Ctrl-p, Ctrl-n
 "" search: / n N * #
 set hlsearch
 set incsearch
+
 "" select and copy: windows:shift+mouse, macOS:fn+mouse
-set mouse=a 
+set mouse=a
+
+"" move line(s) up or down
+nnoremap <C-j> mz:move+<cr>`z
+nnoremap <C-k> mz:move-2<cr>`z
+vnoremap <C-j> :move'>+<cr>`<my`>mzgv`yo`z
+vnoremap <C-k> :move'<-2<cr>`>my`<mzgv`yo`z
+
 set nowrapscan
 set number
 set shiftwidth=4
@@ -19,7 +29,7 @@ filetype on
 syntax off
 
 "" highlight occurrences of word under cursor and clear highlight when cursor is outside
-autocmd CursorHold * execute 'match Search' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
+autocmd CursorMoved * execute 'match IncSearch' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
 
 "" Termdebug
 packadd termdebug
@@ -46,3 +56,4 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
+
