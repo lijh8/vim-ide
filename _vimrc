@@ -1,4 +1,5 @@
 
+
 " ~/.vimrc
 
 set autoindent
@@ -14,19 +15,20 @@ set incsearch
 "" select and copy: windows:shift+mouse, macOS:fn+mouse
 set mouse=a
 
-"" move line(s) up or down
-nnoremap <C-j> mz:move+<cr>`z
-nnoremap <C-k> mz:move-2<cr>`z
-vnoremap <C-j> :move'>+<cr>`<my`>mzgv`yo`z
-vnoremap <C-k> :move'<-2<cr>`>my`<mzgv`yo`z
-
 set nowrapscan
 set number
 set shiftwidth=4
 set tabstop=4
 set updatetime=100
+
 filetype on
 syntax off
+
+"" move line(s) up or down
+nnoremap <C-j> mz:move+<cr>`z
+nnoremap <C-k> mz:move-2<cr>`z
+vnoremap <C-j> :move'>+<cr>`<my`>mzgv`yo`z
+vnoremap <C-k> :move'<-2<cr>`>my`<mzgv`yo`z
 
 "" highlight occurrences of word under cursor and clear highlight when cursor is outside
 autocmd CursorMoved * execute 'match IncSearch' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
