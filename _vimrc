@@ -24,13 +24,13 @@ filetype on
 syntax off
 
 "" move lines up or down
-nnoremap <C-k> :move-2<CR>==
-nnoremap <C-j> :move+<CR>==
-vnoremap <C-k> :move-2<CR>gv=gv
-vnoremap <C-j> :move'>+<CR>gv=gv
+nnoremap <C-k> :move-2<CR>
+nnoremap <C-j> :move+<CR>
+vnoremap <C-k> :move-2<CR>gv
+vnoremap <C-j> :move'>+<CR>gv
 
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '$/~[') . '\>/' : '//')
+autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//')
 
 "" search highlight by select in visual mode(v), press Enter to confirm
 "" search for any non-existing text to cancel the highlight
@@ -61,4 +61,3 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
-
