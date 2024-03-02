@@ -23,18 +23,18 @@ set updatetime=100
 filetype on
 syntax off
 
-"" move line(s) up or down
-nnoremap <C-j> mz:move+<CR>`z
-nnoremap <C-k> mz:move-2<CR>`z
-vnoremap <C-j> :move'>+<CR>`<my`>mzgv`yo`z
-vnoremap <C-k> :move'<-2<CR>`>my`<mzgv`yo`z
+"" move lines up or down
+nnoremap <C-k> :move-2<CR>==
+nnoremap <C-j> :move+<CR>==
+vnoremap <C-k> :move-2<CR>gv=gv
+vnoremap <C-j> :move'>+<CR>gv=gv
 
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '//') . '\>/' : '//')
+autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '$/~[') . '\>/' : '//')
 
-"" highlight occurrences of selected text in (v)isual mode, Enter to confirm
+"" search highlight by select in visual mode(v), press Enter to confirm
 "" search for any non-existing text to cancel the highlight
-vnoremap <expr> <CR> 'y:let @/ = "\\V" . substitute(escape(@", "/\\"), "\n", "\\n", "g") <bar> set hls<CR>'
+vnoremap <expr> <CR> 'y:let @/ = @" <bar> set hlsearch<CR>'
 
 "" Termdebug
 packadd termdebug
@@ -61,3 +61,4 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
+
