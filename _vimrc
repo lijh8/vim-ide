@@ -24,9 +24,9 @@ filetype on
 syntax off
 
 "" move lines up or down
-nnoremap <C-k> :move-2<CR>
-nnoremap <C-j> :move+<CR>
-vnoremap <C-k> :move-2<CR>gv
+nnoremap <C-k> m`:move-2<CR>``
+nnoremap <C-j> m`:move+<CR>``
+vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
