@@ -7,7 +7,7 @@ set cursorline
 set expandtab
 
 "" completion: Ctrl-p, Ctrl-n
-"" search: / n N * #
+"" search: / ? n N * #
 set hlsearch
 set incsearch
 
@@ -61,3 +61,4 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
+
