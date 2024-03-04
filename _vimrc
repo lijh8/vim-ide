@@ -30,7 +30,7 @@ vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//')
+let save_isk=&iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword=save_isk
 
 "" search highlight by select in visual mode(v), press * or # to search
 "" search for any non-existing text to cancel the highlight
@@ -44,13 +44,13 @@ tnoremap <F10> <C-w>:call TermDebugSendCommand('next')<CR>
 tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
 tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
 
-"" NERDTree
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-autocmd VimEnter * NERDTree
-let g:NERDTreeNodeDelimiter = "\u00a0"
-nnoremap <F6> :NERDTreeToggle<CR>
-nnoremap <F7> :NERDTreeFind<CR>
+"" netrw
+autocmd VimEnter * Lexplore 
+nnoremap <F6> :Lexplore<CR>
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 16
 
 "" Tagbar
 "" https://github.com/preservim/tagbar/issues/851
@@ -62,4 +62,3 @@ nnoremap <F8> :TagbarToggle<CR>
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
-
