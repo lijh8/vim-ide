@@ -30,7 +30,7 @@ vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
 "" highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-autocmd CursorMoved * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//')
+autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//')
 
 "" search highlight by select in visual mode(v), press Enter to confirm
 "" search for any non-existing text to cancel the highlight
