@@ -57,7 +57,7 @@ let g:netrw_winsize = 16
 autocmd QuitPre * qall
 autocmd VimEnter * Tagbar
 let g:tagbar_sort = 0
-nnoremap <F8> :TagbarToggle<CR>
+nnoremap <F7> :TagbarToggle<CR>
 
 "" gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 "" $ mkdir ~/project_root_dir/.git
