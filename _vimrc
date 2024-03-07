@@ -1,6 +1,7 @@
 
 " ~/.vimrc
 
+set autochdir
 set autoindent
 set colorcolumn=72
 set cursorline
