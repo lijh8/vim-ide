@@ -3,6 +3,7 @@
 
 set autochdir
 set autoindent
+set autowriteall
 set colorcolumn=72
 set cursorline
 set expandtab
