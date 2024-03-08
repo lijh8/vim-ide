@@ -25,20 +25,22 @@ filetype on
 syntax off
 
 " save file in insert mode and remain in insert mode
-" in insert mode <C-o> can switch temporarily to normal mode and remains in insert mode
 inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
 
 " move lines up or down
-nnoremap <C-k> m`:move-2<CR>``
-nnoremap <C-j> m`:move+<CR>``
 inoremap <C-k> <Esc>m`:move-2<CR>``a
 inoremap <C-j> <Esc>m`:move+<CR>``a
+nnoremap <C-k> m`:move-2<CR>``
+nnoremap <C-j> m`:move+<CR>``
 vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
 " highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-let save_isk=&iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword=save_isk
+let save_isk = &iskeyword 
+ \ | set iskeyword=@,48-57,_,192-255 
+ \ | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') 
+ \ | let &iskeyword = save_isk
 
 " search highlight by select in visual mode(v), press * or # to search
 " search for any non-existing text to cancel the highlight
