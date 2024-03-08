@@ -26,12 +26,14 @@ syntax off
 
 " save file in insert mode and remain in insert mode
 " in insert mode <C-o> can switch temporarily to normal mode and remains in insert mode
-inoremap <C-s> <C-o>:w<CR>
+inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
 
 " move lines up or down
 nnoremap <C-k> m`:move-2<CR>``
 nnoremap <C-j> m`:move+<CR>``
+inoremap <C-k> <Esc>m`:move-2<CR>``a
+inoremap <C-j> <Esc>m`:move+<CR>``a
 vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
@@ -51,7 +53,7 @@ tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
 tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
 
 " netrw
-autocmd VimEnter * Lexplore 
+autocmd VimEnter * Lexplore
 nnoremap <F6> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
