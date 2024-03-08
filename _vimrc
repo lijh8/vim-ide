@@ -25,8 +25,10 @@ filetype on
 syntax off
 
 " save file in insert mode and remain in insert mode
+" return to insert mode with the a command
 inoremap <C-s> <Esc>:w<CR>a
 nnoremap <C-s> :w<CR>
+vnoremap <C-s> <Esc>:w<CR>
 
 " move lines up or down
 inoremap <C-k> <Esc>m`:move-2<CR>``a
