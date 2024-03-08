@@ -24,9 +24,10 @@ set updatetime=100
 filetype on
 syntax off
 
-" save a file in insert mode and remain in insert mode
-" in insert mode <C-o> can switch temporarily to normal mode
+" save file in insert mode and remain in insert mode
+" in insert mode <C-o> can switch temporarily to normal mode and remains in insert mode
 inoremap <C-s> <C-o>:w<CR>
+nnoremap <C-s> :w<CR>
 
 " move lines up or down
 nnoremap <C-k> m`:move-2<CR>``
