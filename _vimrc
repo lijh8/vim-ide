@@ -1,12 +1,15 @@
 
 " ~/.vimrc
 
+filetype on
+
 set autochdir
 set autoindent
 set autowriteall
 set colorcolumn=72
 set cursorline
 set expandtab
+set hidden
 
 " completion: Ctrl-p, Ctrl-n
 " search: / ? n N * #
@@ -22,14 +25,7 @@ set shiftwidth=4
 set tabstop=4
 set updatetime=100
 
-filetype on
 syntax off
-
-" save file in insert mode and remain in insert mode
-" return to insert mode with the a command
-inoremap <C-s> <Esc>:w<CR>a
-nnoremap <C-s> :w<CR>
-vnoremap <C-s> <Esc>:w<CR>
 
 " move lines up or down
 inoremap <C-k> <Esc>m`:move-2<CR>``a
@@ -40,12 +36,9 @@ vnoremap <C-k> :move'<-2<CR>gv
 vnoremap <C-j> :move'>+<CR>gv
 
 " highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
-let save_isk = &iskeyword 
- \ | set iskeyword=@,48-57,_,192-255 
- \ | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') 
- \ | let &iskeyword = save_isk
+let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
 
-" search highlight by select in visual mode(v), press * or # to search
+" search highlight selected text in visual mode(v), press * or # to search
 " search for any non-existing text to cancel the highlight
 vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
 vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
