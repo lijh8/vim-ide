@@ -28,8 +28,6 @@ set updatetime=100
 syntax off
 
 " move lines up or down
-inoremap <C-k> <Esc>m`:move-2<CR>``a
-inoremap <C-j> <Esc>m`:move+<CR>``a
 nnoremap <C-k> m`:move-2<CR>``
 nnoremap <C-j> m`:move+<CR>``
 vnoremap <C-k> :move'<-2<CR>gv
