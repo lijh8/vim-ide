@@ -14,9 +14,6 @@ set expandtab
 set hlsearch
 set incsearch
 
-" select and copy: windows:shift+mouse, macOS:fn+mouse
-set mouse=a
-
 set nowrapscan
 set number
 set ruler
@@ -25,12 +22,6 @@ set tabstop=4
 set updatetime=100
 
 syntax off
-
-" move lines up or down
-nnoremap <C-k> m`:move-2<CR>``
-nnoremap <C-j> m`:move+<CR>``
-vnoremap <C-k> :move'<-2<CR>gv
-vnoremap <C-j> :move'>+<CR>gv
 
 " highlight occurrences of word when cursor is inside the word and cancel highlight when cursor is outside
 let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
