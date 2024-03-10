@@ -5,11 +5,9 @@ filetype on
 
 set autochdir
 set autoindent
-set autowriteall
 set colorcolumn=72
 set cursorline
 set expandtab
-set hidden
 
 " completion: Ctrl-p, Ctrl-n
 " search: / ? n N * #
@@ -21,6 +19,7 @@ set mouse=a
 
 set nowrapscan
 set number
+set ruler
 set shiftwidth=4
 set tabstop=4
 set updatetime=100
