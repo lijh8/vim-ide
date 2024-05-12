@@ -31,20 +31,28 @@ let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMove
 vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
 vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 
-" Termdebug
-packadd termdebug
-nnoremap <F5> :Termdebug<CR>
-tnoremap <F10> <C-w>:call TermDebugSendCommand('next')<CR>
-tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
-tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
-
 " netrw
+" cd my_dir; 
+" vi  # just vi, specify no file or directory name 
 autocmd VimEnter * Lexplore
 nnoremap <F6> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
+
+" C-W-H, C-W-L, C-W-J, C-W-K,
+" :copen
+" :make
+" :grep -r main *
+" :vimgrep main *
+
+" Termdebug
+packadd termdebug
+nnoremap <F5> :Termdebug<CR>
+tnoremap <F10> <C-w>:call TermDebugSendCommand('next')<CR>
+tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
+tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
 
 " Tagbar
 " https://github.com/preservim/tagbar/issues/851
