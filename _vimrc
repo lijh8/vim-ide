@@ -31,6 +31,10 @@ let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMove
 vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
 vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 
+" C-W-H, C-W-L, C-W-J, C-W-K,
+" C-W-S, C-W-V, 
+" :resize n, :resize +n, :vertical resize n, :vertical resize +n,
+
 " netrw
 " cd my_dir; 
 " vi  # just vi, specify no file or directory name 
@@ -38,14 +42,15 @@ autocmd VimEnter * Lexplore
 nnoremap <F6> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
+let g:netrw_list_hide= '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
 
-" C-W-H, C-W-L, C-W-J, C-W-K,
+" quickfix window
 " :copen
 " :make
 " :grep -r main *
-" :vimgrep main *
+" :grep -r "main" * --exclude "*.swp"
 
 " Termdebug
 packadd termdebug
@@ -64,3 +69,4 @@ nnoremap <F7> :TagbarToggle<CR>
 " gutentags: ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 " $ mkdir ~/project_root_dir/.git
 let g:gutentags_add_default_project_roots = 1
+
