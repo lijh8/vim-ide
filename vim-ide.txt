@@ -21,6 +21,7 @@ $
 ---
 
 quickfix list window
+
 :copen
 :make
 :grep foo *
