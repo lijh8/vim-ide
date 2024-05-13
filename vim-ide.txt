@@ -25,7 +25,7 @@ quickfix list window
 
 :copen
 :make
-:grep -r main *
-:grep -r "main" * --exclude "*.swp"
+:grep -r "foo" *
+:grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
 ---
