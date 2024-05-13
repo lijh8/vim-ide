@@ -1,4 +1,3 @@
-
 " ~/.vimrc
 
 filetype on
@@ -36,21 +35,23 @@ vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 " :resize n, :resize +n, :vertical resize n, :vertical resize +n,
 
 " netrw
-" cd my_dir; 
-" vi  # just vi, specify no file or directory name 
+" $ cd my_dir
+" $ vi        # just vi, specify no file or directory name 
 autocmd VimEnter * Lexplore
 nnoremap <F6> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
-let g:netrw_list_hide= '.*\.swp$'
+let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
 
 " quickfix window
+" :
+" Ctrl-p, Ctrl-n
 " :copen
 " :make
-" :grep -r main *
-" :grep -r "main" * --exclude "*.swp"
+" :grep -r "foo" *
+" :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
 " Termdebug
 packadd termdebug
