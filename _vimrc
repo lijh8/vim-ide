@@ -22,9 +22,10 @@ set ruler
 set shiftwidth=4
 set tabstop=4
 
-set updatetime=100
-" auto save file
-autocmd CursorHold,CursorHoldI * update  "with: set updatetime=100
+"set updatetime=100
+
+" auto save
+autocmd BufEnter * autocmd TextChanged,TextChangedI <buffer> silent write
 
 syntax off
 
