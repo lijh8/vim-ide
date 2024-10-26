@@ -17,12 +17,12 @@
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
 
-""" built-in """
+""" built-ins """
 
 filetype on
 set autoindent
-set colorcolumn=80
-set cursorline
+"set colorcolumn=80
+"set cursorline
 set expandtab
 set hlsearch
 set incsearch
@@ -37,8 +37,8 @@ set shiftwidth=4
 set tabstop=4
 syntax off
 
-" auto save
-autocmd BufEnter * autocmd TextChanged,TextChangedI <buffer> if &modifiable && !&readonly | silent write | endif
+" auto save,
+autocmd TextChanged,TextChangedI * if &modifiable && !&readonly | silent write | endif
 
 " netrw,
 autocmd VimEnter * Lexplore
@@ -52,19 +52,19 @@ let g:netrw_mousemaps = 0
 
 " highlight occurrences of word when cursor is inside the word,
 " cancel highlight when cursor is outside.
-let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
+"let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
 
 " search highlight selected text in visual mode(v), press * or # to search,
 " search for any non-existing text to cancel the highlight.
-vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
-vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
+"vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
+"vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 
 " Termdebug,
-packadd termdebug
-nnoremap <F5> :Termdebug<CR>
-tnoremap <F10> <C-w>:call TermDebugSendCommand('next')<CR>
-tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
-tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
+"packadd! termdebug
+"nnoremap <F5> :Termdebug<CR>
+"tnoremap <F10> <C-w>:call TermDebugSendCommand('next')<CR>
+"tnoremap <F11> <C-w>:call TermDebugSendCommand('step')<CR>
+"tnoremap <F12> <C-w>:call TermDebugSendCommand('finish')<CR>
 
 
 """ non built-in plugins """
