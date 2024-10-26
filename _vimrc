@@ -4,7 +4,7 @@ filetype on
 
 set autochdir
 set autoindent
-set colorcolumn=72
+set colorcolumn=80
 set cursorline
 set expandtab
 
@@ -13,12 +13,18 @@ set expandtab
 set hlsearch
 set incsearch
 
+" select and copy: windows:shift+mouse, macOS:fn+mouse
+set mouse=a
+
 set nowrapscan
 set number
 set ruler
 set shiftwidth=4
 set tabstop=4
+
 set updatetime=100
+" auto save file
+autocmd CursorHold,CursorHoldI * update  "with: set updatetime=100
 
 syntax off
 
@@ -31,12 +37,12 @@ vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
 vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 
 " C-W-H, C-W-L, C-W-J, C-W-K,
-" C-W-S, C-W-V, 
+" C-W-S, C-W-V,
 " :resize n, :resize +n, :vertical resize n, :vertical resize +n,
 
 " netrw
 " $ cd my_dir
-" $ vi        # just vi, specify no file or directory name 
+" $ vi        # just vi, specify no file or directory name
 autocmd VimEnter * Lexplore
 nnoremap <F6> :Lexplore<CR>
 let g:netrw_banner = 0
