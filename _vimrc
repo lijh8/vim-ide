@@ -37,8 +37,8 @@ set shiftwidth=4
 set tabstop=4
 syntax off
 
-" auto save,
-autocmd BufEnter * autocmd TextChanged,TextChangedI <buffer> silent write
+" auto save
+autocmd BufEnter * autocmd TextChanged,TextChangedI <buffer> if &modifiable && !&readonly | silent write | endif
 
 " netrw,
 autocmd VimEnter * Lexplore
@@ -48,6 +48,7 @@ let g:netrw_browse_split = 4
 let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
+let g:netrw_mousemaps = 0
 
 " highlight occurrences of word when cursor is inside the word,
 " cancel highlight when cursor is outside.
