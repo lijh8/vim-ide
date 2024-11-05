@@ -49,7 +49,7 @@ syntax off
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly | silent write | endif
 
 " netrw,
-autocmd VimEnter * Lexplore
+"autocmd VimEnter * Lexplore
 nnoremap <F2> :Lexplore<CR>
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
