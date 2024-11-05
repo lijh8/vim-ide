@@ -10,7 +10,10 @@
 
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
-" :resize n, :resize +n, :vertical resize n, :vertical resize +n,
+" :resize N, :resize +N, :vertical resize N, :vertical resize +N,
+
+" multiple tabs
+" :tabnew a.txt, :tabedit a.txt, :tabn [N], gt, gT,
 
 " quickfix window,
 " :
