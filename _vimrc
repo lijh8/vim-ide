@@ -1,19 +1,18 @@
 " ~/.vimrc
 
 " $ vi ~/.bashrc
-" stty -ixon  # terminal flow control Ctrl-S conflicts with vim, emacs.
+" stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
 " $
 
 " undo: u, redo: Ctrl-r,
 " completion: Ctrl-p, Ctrl-n,
 " search: / ? n N * #
 
-" in vim, search command history on ex command status line at the bottom,
-" do not edit in the command window.
-" :Ctrl-F, :Ctrl-p, :Ctrl-n
+" command-line window, search for command history inside vim.
+" :Ctrl-f, :Ctrl-p, :Ctrl-n,
 
-" multiple tabs
-" :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT,
+" multiple tabs,
+" :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT, g<Tab>,
 
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
