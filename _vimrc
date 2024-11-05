@@ -4,6 +4,10 @@
 " completion: Ctrl-p, Ctrl-n,
 " search: / ? n N * #
 
+" $ vi ~/.bashrc
+" stty -ixon  # terminal flow control Ctrl-S conflicts with vim, emacs.
+" $
+
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
 " :resize n, :resize +n, :vertical resize n, :vertical resize +n,
