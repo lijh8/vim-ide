@@ -1,23 +1,25 @@
 " ~/.vimrc
 
+" $ vi ~/.bashrc
+" stty -ixon  # terminal flow control Ctrl-S conflicts with vim, emacs.
+" $
+
 " undo: u, redo: Ctrl-r,
 " completion: Ctrl-p, Ctrl-n,
 " search: / ? n N * #
 
-" $ vi ~/.bashrc
-" stty -ixon  # terminal flow control Ctrl-S conflicts with vim, emacs.
-" $
+" in vim, search command history on ex command status line at the bottom,
+" do not edit in the command window.
+" :Ctrl-F, :Ctrl-p, :Ctrl-n
+
+" multiple tabs
+" :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT,
 
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
 " :resize N, :resize +N, :vertical resize N, :vertical resize +N,
 
-" multiple tabs
-" :tabnew a.txt, :tabedit a.txt, :tabn [N], gt, gT,
-
 " quickfix window,
-" :
-" Ctrl-p, Ctrl-n
 " :copen
 " :make
 " :grep -r "foo" *
