@@ -1,5 +1,5 @@
-" ~/.vimrc, vim-minimal,
-" ~/.virc, ~/.exrc, vim-enhanced,
+" ~/.virc, ~/.exrc, vim-minimal,
+" ~/.vimrc, vim-enhanced,
 
 " $ vi ~/.bashrc
 " stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
