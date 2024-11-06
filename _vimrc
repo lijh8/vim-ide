@@ -1,4 +1,5 @@
-" ~/.vimrc
+" ~/.vimrc, vim-minimal,
+" ~/.virc, ~/.exrc, vim-enhanced,
 
 " $ vi ~/.bashrc
 " stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
@@ -11,7 +12,7 @@
 " command-line window, search for command history inside vim.
 " :Ctrl-f, :Ctrl-p, :Ctrl-n,
 
-" multiple tabs,
+" multiple tab,
 " :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT, g<Tab>,
 
 " multiple window,
@@ -43,20 +44,20 @@ set number
 set ruler
 set shiftwidth=4
 set tabstop=4
-syntax off
+"syntax off
 
 " auto save,
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly | silent write | endif
 
 " netrw,
 "autocmd VimEnter * Lexplore
-nnoremap <F2> :Lexplore<CR>
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
-let g:netrw_list_hide = '.*\.swp$'
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 16
-let g:netrw_mousemaps = 0
+"nnoremap <F2> :Lexplore<CR>
+"let g:netrw_banner = 0
+"let g:netrw_browse_split = 4
+"let g:netrw_list_hide = '.*\.swp$'
+"let g:netrw_liststyle = 3
+"let g:netrw_winsize = 16
+"let g:netrw_mousemaps = 0
 
 " highlight occurrences of word when cursor is inside the word,
 " cancel highlight when cursor is outside.
