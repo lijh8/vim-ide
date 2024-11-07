@@ -1,9 +1,11 @@
-" ~/.virc, ~/.exrc, vim-minimal,
-" ~/.vimrc, vim-enhanced,
+" ~/.vimrc, ~/.virc, ~/.exrc,
 
 " $ vi ~/.bashrc
 " stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
 " $
+
+" $ sudo vim -u ~/.vimrc /etc/systemd/system.conf
+" $ sudo vim -u /home/ljh/.vimrc /etc/systemd/system.conf
 
 " undo: u, redo: Ctrl-r,
 " completion: Ctrl-p, Ctrl-n,
@@ -37,13 +39,15 @@ set hlsearch
 set incsearch
 
 " select for copy: windows:shift+mouse, macOS:fn+mouse,
-set mouse=a
+set mouse=a " Win:SHIFT+mouse, Mac:fn+mouse
 
+set nocompatible  " u always undo, Ctrl-r always redo,
 set nowrapscan
 set number
 set ruler
 set shiftwidth=4
 set tabstop=4
+set updatetime=100
 "syntax off
 
 " auto save,
