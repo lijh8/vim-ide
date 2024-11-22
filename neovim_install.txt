@@ -1,0 +1,59 @@
+---
+
+
+Install plugin using Vim's "packages" feature, without 3rd-party plugin manager.
+
+copy plugin directory under: ~/.config/nvim/pack/nvim/start/ ,
+as shown in the nvim-lspconfig plugin example.
+
+# https://github.com/neovim/nvim-lspconfig?tab=readme-ov-file ,
+$ git clone https://github.com/neovim/nvim-lspconfig ~/.config/nvim/pack/nvim/start/nvim-lspconfig  #
+
+$
+$ tree ~/.config/
+└── nvim
+    ├── init.lua
+    └── pack
+        └── nvim
+            └── start
+                ├── lspsaga.nvim
+                │   ├── doc
+                │   ├── LICENSE
+                │   ├── lua
+                │   │   └── lspsaga
+                │   ├── plugin
+                │   │   └── lspsaga.lua
+                │   ├── README.md
+                │   └── test
+                └── nvim-lspconfig
+                    ├── doc
+                    ├── LICENSE.md
+                    ├── lua
+                    │   ├── lspconfig
+                    ├── plugin
+                    │   └── lspconfig.lua
+                    ├── README.md
+                    └── test
+
+$
+$
+$ cat ~/.config/nvim/init.lua
+-- ~/.config/nvim/init.lua
+
+-- https://neovim.io/doc/user/nvim.html#nvim-from-vim
+vim.opt.runtimepath:prepend("~/.vim")
+vim.opt.runtimepath:append("~/.vim/after")
+vim.opt.packpath = vim.opt.runtimepath:get()
+vim.cmd("source ~/.vimrc")
+
+-- LSP
+require'lspconfig'.clangd.setup{}
+require'lspsaga'.setup{}
+
+--
+
+$
+
+
+---
+
