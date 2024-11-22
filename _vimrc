@@ -54,7 +54,7 @@ set updatetime=100
 "syntax off
 
 " auto save,
-autocmd TextChanged,TextChangedI * if &modifiable && !&readonly | silent write | endif
+autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" | silent write | endif
 
 " netrw,
 "autocmd VimEnter * Lexplore
