@@ -53,7 +53,7 @@ set tabstop=4
 set updatetime=100
 "syntax off
 
-" auto save,
+" auto save, works with vim rather than vim-tiny.
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" && &buftype == '' | silent write | endif
 
 " netrw,
