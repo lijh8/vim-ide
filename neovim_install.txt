@@ -16,15 +16,6 @@ $ tree ~/.config/
     └── pack
         └── nvim
             └── start
-                ├── lspsaga.nvim
-                │   ├── doc
-                │   ├── LICENSE
-                │   ├── lua
-                │   │   └── lspsaga
-                │   ├── plugin
-                │   │   └── lspsaga.lua
-                │   ├── README.md
-                │   └── test
                 └── nvim-lspconfig
                     ├── doc
                     ├── LICENSE.md
@@ -40,7 +31,8 @@ $
 $ cat ~/.config/nvim/init.lua
 -- ~/.config/nvim/init.lua
 
--- https://neovim.io/doc/user/nvim.html#nvim-from-vim
+-- https://neovim.io/doc/user/nvim.html#nvim-from-vim ,
+-- use init.lua instead of init.vim ,
 vim.opt.runtimepath:prepend("~/.vim")
 vim.opt.runtimepath:append("~/.vim/after")
 vim.opt.packpath = vim.opt.runtimepath:get()
@@ -48,7 +40,6 @@ vim.cmd("source ~/.vimrc")
 
 -- LSP
 require'lspconfig'.clangd.setup{}
-require'lspsaga'.setup{}
 
 --
 
