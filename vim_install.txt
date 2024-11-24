@@ -1,9 +1,4 @@
----
-
-
-vim as ide
-
-vim-8 or later built-in plugin or package management:
+vim-8 or later built-in plugin or package management directories:
 
 ~/.vim/pack/vendor/start/nerdtree,
 ~/.vim/pack/vendor/opt/foobar,
@@ -11,9 +6,6 @@ vim-8 or later built-in plugin or package management:
 1. "vendor" is just a name, it can be named otherwise like: plugins, plugin_dir, etc.;
 2. plugin under start is automatically loaded;
 3. plugin under opt needs to be loaded in ~/.vimrc: " packadd! foobar ";
-
-
----
 
 
 // vim-lsp
@@ -42,16 +34,9 @@ $ cd ctags && bash autogen.sh && ./configure && make && sudo make install
 $
 
 
----
-
-
 quickfix list window
 
 :copen
 :make
 :grep -r "foo" *
 :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
-
-
----
-
