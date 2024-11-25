@@ -16,6 +16,12 @@ $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/vim-lsp/doc" -c q
 $ git clone https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/start/vim-lsp-settings
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/vim-lsp-settings/doc" -c q
 
+$ vi ~/.vimrc
+" vim-lsp, vim-lsp-settings,
+" similar to neovim: tagfunc is set to vim.lsp.tagfunc(),
+set tagfunc=lsp#tagfunc
+$
+
 // directory tree, use built-in netrw instead of nerdtree
 $ git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q

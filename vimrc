@@ -85,6 +85,10 @@ autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") !
 
 """ non built-in plugins """
 
+" vim-lsp, vim-lsp-settings,
+" similar to neovim: tagfunc is set to vim.lsp.tagfunc(),
+set tagfunc=lsp#tagfunc
+
 " Tagbar,
 " https://github.com/preservim/tagbar/issues/851 ,
 "autocmd QuitPre * qall
