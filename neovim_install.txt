@@ -27,7 +27,7 @@ $ cat ~/.config/nvim/init.lua
 
 -- https://neovim.io/doc/user/nvim.html#nvim-from-vim
 -- source a modified ~/.vimrc2, do not source ~/.vimrc directly
--- to avoid loading vim-lsp together with nvim built-in lsp
+-- to avoid loading vim-lsp together with neovim built-in lsp
 -- do not install vim-lsp under `start`, or it will be loaded by neovim automatically
 vim.opt.runtimepath:prepend("~/.vim")
 vim.opt.runtimepath:append("~/.vim/after")
