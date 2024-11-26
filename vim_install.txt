@@ -9,17 +9,21 @@ vim-8 or later built-in plugin or package management directories:
 
 
 // vim-lsp
-$ git clone https://github.com/prabirshrestha/vim-lsp.git ~/.vim/pack/vendor/start/vim-lsp
-$ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/vim-lsp/doc" -c q
+$ git clone https://github.com/prabirshrestha/vim-lsp.git ~/.vim/pack/vendor/opt/vim-lsp
+$ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp/doc" -c q
 
 // vim-lsp-settings
-$ git clone https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/start/vim-lsp-settings
-$ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/vim-lsp-settings/doc" -c q
+$ git clone https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/opt/vim-lsp-settings
+$ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp-settings/doc" -c q
 
 $ vi ~/.vimrc
 " vim-lsp, vim-lsp-settings,
 " similar to neovim: tagfunc is set to vim.lsp.tagfunc(),
-set tagfunc=lsp#tagfunc
+" add vim-lsp in vim only install in `opt` (not `start`) directory then packadd,
+" neovim has built-in lsp, and should source a modified copy eg. ~/.vimrc2,
+packadd! vim-lsp          " comment in neovim
+packadd! vim-lsp-settings " comment in neovim
+set tagfunc=lsp#tagfunc   " comment in neovim
 $
 
 // directory tree, use built-in netrw instead of nerdtree

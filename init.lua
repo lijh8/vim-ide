@@ -1,28 +1,3 @@
-neovim:
-
-$ sudo rm -rf /opt/nvim
-$ sudo tar -C /opt -xzf nvim-linux64.tar.gz
-$ vi ~/.bashrc
-export PATH="$PATH:/opt/nvim-linux64/bin"
-$
-
-
-plugins:
-
-$ git clone https://github.com/neovim/nvim-lspconfig  ~/.config/nvim/pack/nvim/start/nvim-lspconfig/
-$ nvim -u NONE -c "helptags ~/.config/nvim/pack/nvim/start/nvim-lspconfig/doc/" -c q
-
-$ git clone https://github.com/nvim-treesitter/nvim-treesitter  ~/.config/nvim/pack/nvim/start/nvim-treesitter/
-$ nvim -u NONE -c "helptags ~/.config/nvim/pack/nvim/start/nvim-treesitter/doc/" -c q
-
-$ ls ~/.config/nvim/pack/nvim/start/nvim-lspconfig/
-lua  plugin  ..
-$ ls ~/.config/nvim/pack/nvim/start/nvim-treesitter/
-lua  plugin  ..
-$
-
-
-$ cat ~/.config/nvim/init.lua
 -- ~/.config/nvim/init.lua
 
 -- https://neovim.io/doc/user/nvim.html#nvim-from-vim
@@ -57,5 +32,3 @@ require("aerial").setup({
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle<CR>")
 
 --
-
-$

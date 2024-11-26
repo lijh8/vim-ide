@@ -2,6 +2,7 @@
 
 " $ vi ~/.bashrc
 " stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
+" #stty columns 80
 " $
 
 " $ sudo vim -u ~/.vimrc /etc/systemd/system.conf
@@ -14,8 +15,16 @@
 " command-line window, search for command history inside vim.
 " :Ctrl-f, :Ctrl-p, :Ctrl-n,
 
-" multiple tab,
+" multiple tab(s),
 " :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT, g<Tab>,
+
+" multiple buffer(s),
+" :args, :n, :N, :rewind,
+
+" search a single letter inside a line,
+" search a letter `c`: f c
+" repeat forward: ;
+" repeat backword: ,
 
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
@@ -53,7 +62,7 @@ set tabstop=4
 set updatetime=100
 "syntax off
 
-" auto save, works with vim rather than vim-tiny.
+" auto save, works with vim but not vim-tiny,
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" && &buftype == '' | silent write | endif
 
 " netrw,
@@ -87,7 +96,11 @@ autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") !
 
 " vim-lsp, vim-lsp-settings,
 " similar to neovim: tagfunc is set to vim.lsp.tagfunc(),
-set tagfunc=lsp#tagfunc
+" add vim-lsp in vim only install in `opt` (not `start`) directory then packadd,
+" neovim has built-in lsp, and should source a modified copy eg. ~/.vimrc2,
+packadd! vim-lsp          " comment for neovim
+packadd! vim-lsp-settings " comment for neovim
+set tagfunc=lsp#tagfunc   " comment for neovim
 
 " Tagbar,
 " https://github.com/preservim/tagbar/issues/851 ,
