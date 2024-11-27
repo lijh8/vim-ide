@@ -51,14 +51,11 @@ set autoindent
 set expandtab
 set hlsearch
 set incsearch
-
-" select for copy: windows:shift+mouse, macOS:fn+mouse,
-set mouse=a " Win:SHIFT+mouse, Mac:fn+mouse
-
-set nocompatible  " u always undo, Ctrl-r always redo,
+set mouse=a " selection: Win:shift+mouse, Mac:fn+mouse,
+set nocompatible " u always undo, Ctrl-r always redo,
 set nowrapscan
 set number
-set ruler
+set ruler " older vim on macos not show current line number at status line,
 set shiftwidth=4
 set tabstop=4
 set updatetime=100
