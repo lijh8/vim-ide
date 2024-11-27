@@ -16,7 +16,9 @@
 " :Ctrl-f, :Ctrl-p, :Ctrl-n,
 
 " multiple tab(s),
-" :e a.txt, :tabnew [a.txt], :tabedit [a.txt], :tabn [N], gt, gT, g<Tab>,
+" :e a.txt, :w, :qa, :close,
+" :tabnew [a.txt], :tabedit [a.txt],
+" gt, gT, [x]gt, :tabn [x],
 
 " multiple buffer(s),
 " :args, :n, :N, :rewind,
