@@ -9,11 +9,11 @@ vim-8 or later built-in plugin or package management directories:
 
 
 // vim-lsp
-$ git clone https://github.com/prabirshrestha/vim-lsp.git ~/.vim/pack/vendor/opt/vim-lsp
+$ git clone --depth=1 https://github.com/prabirshrestha/vim-lsp.git ~/.vim/pack/vendor/opt/vim-lsp/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp/doc" -c q
 
 // vim-lsp-settings
-$ git clone https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/opt/vim-lsp-settings
+$ git clone --depth=1 https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/opt/vim-lsp-settings/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp-settings/doc" -c q
 
 $ vi ~/.vimrc
@@ -27,19 +27,19 @@ set tagfunc=lsp#tagfunc   " comment in neovim
 $
 
 // directory tree, use built-in netrw instead of nerdtree
-$ git clone https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree
+$ git clone --depth=1 https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 
 // symbol outline
-$ git clone https://github.com/preservim/tagbar.git ~/.vim/pack/vendor/start/tagbar
+$ git clone --depth=1 https://github.com/preservim/tagbar.git ~/.vim/pack/vendor/start/tagbar/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/tagbar/doc" -c q
 
 // automatic ctags manager
-$ git clone https://github.com/ludovicchabant/vim-gutentags.git ~/.vim/pack/vendor/start/gutentags
+$ git clone --depth=1 https://github.com/ludovicchabant/vim-gutentags.git ~/.vim/pack/vendor/start/gutentags/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/gutentags/doc" -c q
 
 // jump to definition
-$ git clone https://github.com/universal-ctags/ctags.git
+$ git clone --depth=1 https://github.com/universal-ctags/ctags.git
 $ cd ctags && bash autogen.sh && ./configure && make && sudo make install
 $
 
