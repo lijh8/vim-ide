@@ -21,14 +21,14 @@ require'lspconfig'.clangd.setup{}
 require'nvim-treesitter'.setup{}
 
 -- symbol outline for c,c++ with neovim lsp or treesitter
--- leader key is backslash \ so use \a in normal mode
 -- ~/.config/nvim/pack/nvim/start/aerial.nvim/lua/aerial/
 require("aerial").setup({
   layout = {
-    min_width = 30,
+    width = 30,
   },
   autojump = true,
 })
+-- leader key is backslash \ so use \a in normal mode
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle<CR>")
 
 --
