@@ -1,15 +1,14 @@
 -- ~/.config/nvim/init.lua
 
--- https://neovim.io/doc/user/nvim.html#nvim-from-vim
--- source a modified ~/.vimrc2, do not source ~/.vimrc directly
--- to avoid loading vim-lsp together with neovim built-in lsp
--- do not install vim-lsp under `start`, or it will be loaded by neovim automatically
+-- https://neovim.io/doc/user/nvim.html#nvim-from-vim ,
+-- do not source ~/.vimrc directly, source a modified ~/.vimrc2 ,
+-- to avoid loading vim-lsp together with neovim built-in lsp,
 vim.opt.runtimepath:prepend("~/.vim")
 vim.opt.runtimepath:append("~/.vim/after")
 vim.opt.packpath = vim.opt.runtimepath:get()
 vim.cmd("source ~/.vimrc2")
 
--- comment the vim-lsp settings in modified ~/.vimrc2,
+-- comment the vim-lsp, vim-lsp-settings in modified ~/.vimrc2,
 -- "packadd! vim-lsp          " comment for neovim
 -- "packadd! vim-lsp-settings " comment for neovim
 -- "set tagfunc=lsp#tagfunc   " comment for neovim

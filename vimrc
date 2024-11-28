@@ -6,35 +6,33 @@
 " $
 
 " $ sudo vim -u ~/.vimrc /etc/systemd/system.conf
-" $ sudo vim -u /home/ljh/.vimrc /etc/systemd/system.conf
 
-" undo: u, redo: Ctrl-r,
-" completion: Ctrl-p, Ctrl-n,
-" search: / ? n N * #
-
-" command-line window, search for command history inside vim.
-" :Ctrl-f, :Ctrl-p, :Ctrl-n,
-
-" multiple tab(s),
-" :e a.txt, :w, :qa, :close,
-" :tabnew [a.txt], :tabedit [a.txt],
-" gt, gT, [x]gt, :tabn [x],
-
-" multiple buffer(s),
-" $ vim foo bar
-" :args, :n, :N, :rewind,
+" undo: u, redo: Ctrl-r ,
+" completion: Ctrl-p, Ctrl-n ,
+" search:  /  ?  n  N  *  #
 
 " switch with filename shortcuts, does not work for more than two files,
-" :e foo, :e #, ctrl-^,
+" :e a.txt, :w, :qa, :close, Ctrl-^ ,
 
-" search a single letter inside a line,
-" search a letter `c`: f c
-" repeat forward: ;
-" repeat backword: ,
+" multiple buffer(s),
+" $ vim a.txt b.txt
+" :args, :n, :N, :rewind,
+
+" multiple tab(s),
+" :tabnew [a.txt] , :tabedit [a.txt] ,
+" gt , gT , [3]gt , :tabn [3] ,
 
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
-" :resize N, :resize +N, :vertical resize N, :vertical resize +N,
+" :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3 ,
+
+" search a single letter inside a line,
+" search a letter f
+" search forward ;
+" search backword ,
+
+" vim command-line window, search for vim command history,
+" :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * , # ,
 
 " quickfix window,
 " :copen
@@ -68,6 +66,15 @@ set updatetime=100
 " auto save, works with vim but not vim-tiny,
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" && &buftype == "" | silent write | endif
 
+" highlight occurrences of word when cursor is inside the word,
+" cancel highlight when cursor is outside.
+"let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
+
+" search highlight selected text in visual mode(v), press * or # to search,
+" search for any non-existing text to cancel the highlight.
+"vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
+"vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
+
 " netrw,
 "autocmd VimEnter * Lexplore
 nnoremap <F2> :Lexplore<CR>
@@ -77,15 +84,6 @@ let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
 let g:netrw_mousemaps = 0
-
-" highlight occurrences of word when cursor is inside the word,
-" cancel highlight when cursor is outside.
-"let save_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = save_isk
-
-" search highlight selected text in visual mode(v), press * or # to search,
-" search for any non-existing text to cancel the highlight.
-"vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
-"vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
 
 " Termdebug,
 "packadd! termdebug
@@ -98,9 +96,9 @@ let g:netrw_mousemaps = 0
 """ non built-in plugins """
 
 " vim-lsp, vim-lsp-settings,
-" similar to neovim: tagfunc is set to vim.lsp.tagfunc(),
-" add vim-lsp in vim only install in `opt` (not `start`) directory then packadd,
-" neovim has built-in lsp, and should source a modified copy eg. ~/.vimrc2,
+" install in vim at "opt" directory and manually: packadd! both,
+" neovim has built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
+" neovim should source a modified copy ~/.vimrc2,
 packadd! vim-lsp          " comment for neovim
 packadd! vim-lsp-settings " comment for neovim
 set tagfunc=lsp#tagfunc   " comment for neovim
