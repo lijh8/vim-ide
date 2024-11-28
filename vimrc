@@ -21,7 +21,11 @@
 " gt, gT, [x]gt, :tabn [x],
 
 " multiple buffer(s),
+" $ vim foo bar
 " :args, :n, :N, :rewind,
+
+" switch with filename shortcuts, does not work for more than two files,
+" :e foo, :e #, ctrl-^,
 
 " search a single letter inside a line,
 " search a letter `c`: f c
