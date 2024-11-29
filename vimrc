@@ -25,6 +25,7 @@
 " multiple window,
 " C-W-H, C-W-L, C-W-J, C-W-K, C-W-S, C-W-V,
 " :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3 ,
+" :echo winwidth(0) , :echo winheight(0) ,
 
 " search a single letter inside a line,
 " search a letter f
