@@ -6,6 +6,10 @@ vim built-in plugin package management directory:
 2. "start" plugins under which is automatically loaded;
 3. "opt" plugins under which needs to be loaded in ~/.vimrc: packadd! foobar ;
 
+" vim-lsp, vim-lsp-settings,
+" install for vim at "opt" directory and manually packadd,
+" do not install at "start", or neovim will load it automatically,
+
 // vim-lsp
 $ git clone --depth=1 https://github.com/prabirshrestha/vim-lsp.git ~/.vim/pack/vendor/opt/vim-lsp/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp/doc" -c q
@@ -13,17 +17,6 @@ $ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp/doc" -c q
 // vim-lsp-settings
 $ git clone --depth=1 https://github.com/prabirshrestha/vim-lsp-settings.git ~/.vim/pack/vendor/opt/vim-lsp-settings/
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/vim-lsp-settings/doc" -c q
-
-$ vi ~/.vimrc
-" vim-lsp, vim-lsp-settings,
-" do not install at "start", or neovim will load it automatically,
-" install at "opt" and manually: packadd! both,
-" neovim has built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
-" neovim should source a modified copy ~/.vimrc2,
-packadd! vim-lsp          " comment in neovim
-packadd! vim-lsp-settings " comment in neovim
-set tagfunc=lsp#tagfunc   " comment in neovim
-$
 
 // directory tree, use built-in netrw instead of nerdtree
 $ git clone --depth=1 https://github.com/preservim/nerdtree.git ~/.vim/pack/vendor/start/nerdtree/

@@ -96,12 +96,13 @@ let g:netrw_mousemaps = 0
 """ non built-in plugins """
 
 " vim-lsp, vim-lsp-settings,
-" install in vim at "opt" directory and manually: packadd! both,
+" install for vim at "opt" directory and manually packadd,
 " neovim has built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
-" neovim should source a modified copy ~/.vimrc2,
-packadd! vim-lsp          " comment for neovim
-packadd! vim-lsp-settings " comment for neovim
-set tagfunc=lsp#tagfunc   " comment for neovim
+if !has('nvim')
+  packadd! vim-lsp
+  packadd! vim-lsp-settings
+  set tagfunc=lsp#tagfunc
+endif
 
 " Tagbar,
 " https://github.com/preservim/tagbar/issues/851 ,

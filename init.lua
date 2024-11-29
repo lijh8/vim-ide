@@ -1,25 +1,19 @@
 -- ~/.config/nvim/init.lua
 
 -- https://neovim.io/doc/user/nvim.html#nvim-from-vim ,
--- do not source ~/.vimrc directly, source a modified ~/.vimrc2 ,
--- to avoid loading vim-lsp together with neovim built-in lsp,
 vim.opt.runtimepath:prepend("~/.vim")
 vim.opt.runtimepath:append("~/.vim/after")
 vim.opt.packpath = vim.opt.runtimepath:get()
-vim.cmd("source ~/.vimrc2")
+vim.cmd("source ~/.vimrc")
 
--- comment the vim-lsp, vim-lsp-settings in modified ~/.vimrc2,
--- "packadd! vim-lsp          " comment for neovim
--- "packadd! vim-lsp-settings " comment for neovim
--- "set tagfunc=lsp#tagfunc   " comment for neovim
-
+-- neovim built-in lsp with clangd for c,c++,
 -- ~/.config/nvim/pack/nvim/start/nvim-lspconfig/lua/lspconfig/
 require'lspconfig'.clangd.setup{}
 
 -- ~/.config/nvim/pack/nvim/start/nvim-treesitter/lua/nvim-treesitter/
 require'nvim-treesitter'.setup{}
 
--- symbol outline for c,c++ with neovim lsp or treesitter
+-- symbol outline with neovim lsp or treesitter
 -- ~/.config/nvim/pack/nvim/start/aerial.nvim/lua/aerial/
 require("aerial").setup({
   layout = {
