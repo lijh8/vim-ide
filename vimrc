@@ -47,6 +47,7 @@
 
 """ built-ins """
 
+" :messages " check for possible error messages
 filetype on
 set autoindent
 "set colorcolumn=80
@@ -59,8 +60,8 @@ set nocompatible " u always undo, Ctrl-r always redo,
 set nowrapscan
 set number
 set ruler " older vim on macos not show current line number at status line,
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set updatetime=100
 "syntax off
 
@@ -98,11 +99,14 @@ let g:netrw_mousemaps = 0
 
 " vim-lsp, vim-lsp-settings,
 " install for vim at "opt" directory and manually packadd,
-" neovim has built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
-if !has('nvim')
+" neovim built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
+if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/vim-lsp/plugin/lsp.vim'))
   packadd! vim-lsp
   packadd! vim-lsp-settings
   set tagfunc=lsp#tagfunc
+
+  " auto format when manually save with :w , :w! ,
+  autocmd BufWritePre * if exists(':LspDocumentFormat') | execute ':LspDocumentFormat' | endif
 endif
 
 " Tagbar,
