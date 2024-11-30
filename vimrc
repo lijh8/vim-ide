@@ -3,9 +3,10 @@
 " $ vi ~/.bashrc
 " stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs.
 " #stty columns 80
+" #stty rows 24
 " $
 
-" $ sudo vim -u ~/.vimrc /etc/systemd/system.conf
+" $ sudo vim -u ~/.vimrc a.txt
 
 " undo: u, redo: Ctrl-r ,
 " completion: Ctrl-p, Ctrl-n ,
@@ -81,7 +82,8 @@ autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") !
 "autocmd VimEnter * Lexplore
 nnoremap <F2> :Lexplore<CR>
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4
+let g:netrw_browse_split = 4 " press t to open file in new tab,
+let g:netrw_keepdir = 0 " do not keep current directory unchanged, use current browsing directory as current directory,
 let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 16
