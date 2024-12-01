@@ -35,7 +35,7 @@
 " search backword ,
 
 " vim command-line window, search for vim command history
-" :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * , # ,
+" :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
 
 " quickfix window
 " :copen
@@ -49,8 +49,8 @@
 
 """ built-ins """
 
-" :messages " check for messages with echom
 filetype on
+" :messages " check for messages with echom
 set autoindent
 "set colorcolumn=80
 "set cursorline
@@ -58,13 +58,13 @@ set expandtab
 set hlsearch
 set incsearch
 set mouse=a " selection: Win:shift+mouse, Mac:fn+mouse,
-set nocompatible " u always undo, Ctrl-r always redo,
+set nocompatible " vim-tiny, u always undo, Ctrl-r always redo,
 set nowrapscan
 set number
 set ruler " old vim on macos not show current line number at status line
 set shiftwidth=2
 set tabstop=2
-"set updatetime=100 " for CursorHold
+"set updatetime=100 " CursorHold
 "syntax off
 
 " auto save, works with vim but not vim-tiny
