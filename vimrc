@@ -1,41 +1,40 @@
 " ~/.vimrc, ~/.virc, ~/.exrc,
+" vim.org , vimhelp.org ,
 
 " $ vi ~/.bashrc
-" stty -ixon  # terminal flow control Ctrl-s conflicts with vim, emacs
+" stty -ixon # terminal flow control Ctrl-s conflicts with vim, emacs
 " #stty columns 80
 " #stty rows 24
 " $
 
 " $ sudo vim -u ~/.vimrc a.txt
 
-" undo: u , redo: Ctrl-r ,
-" completion: Ctrl-p , Ctrl-n ,
+" multiple files in command line args
+" $ vim a.txt b.txt
+" :w , :w! , :wa , :q, :q!, :qa , :wqa ,
+" :args , :n , :N , :rewind ,
+" undo: u , redo: Ctrl-r , " set nocompatible
 " search  /  ?  n  N  *  #
-" case insensitive serach /\cFOO , /\cfoo ,
-
-" switch with filename shortcuts, work for two recently opened files
-" :e a.txt , :w , :qa , :close , Ctrl-^ ,
+" case insensitive, /\cFOO , /\cfoo ,
+" vim command-line window history, :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
+" completion, Ctrl-p , Ctrl-n ,
 
 " multiple buffers
-" $ vim a.txt b.txt
-" :args , :n , :N , :rewind ,
+" :e a.txt , :buffers , :buffer 3 , [3]Ctrl-^ , :bnext , :bprevious ,
 
-" multiple tab
+" multiple tabs
 " :tabnew [a.txt] , :tabedit [a.txt] ,
 " gt , gT , [3]gt , :tabn [3] ,
 
-" multiple window
+" multiple windows
 " C-W-H , C-W-L , C-W-J , C-W-K , C-W-S , C-W-V ,
 " :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3 ,
+" :close ,
 " :echo winwidth(0) , :echo winheight(0) ,
 
-" search for a single letter inside a line,
-" search for a letter f
+" search for a letter c in a line, fc ,
 " search forward ;
 " search backword ,
-
-" vim command-line window, search for vim command history
-" :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
 
 " quickfix window
 " :copen
@@ -61,20 +60,20 @@ set mouse=a " selection: Win:shift+mouse, Mac:fn+mouse,
 set nocompatible " vim-tiny, u always undo, Ctrl-r always redo,
 set nowrapscan
 set number
-set ruler " old vim on macos not show current line number at status line
+set ruler " vim-tiny, show current line number at status line
 set shiftwidth=2
 set tabstop=2
 "set updatetime=100 " CursorHold
 "syntax off
 
-" auto save, works with vim but not vim-tiny
+" auto save works with vim, not vim-tiny
 autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" && &buftype == "" | silent write | endif
 
 " highlight occurrences of word when cursor is inside the word,
 " cancel highlight when cursor is outside.
 "let old_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = old_isk
 
-" search highlight selected text in visual mode(v), press * or # to search,
+" highlight selected text by search in visual mode(v), press * or # to search,
 " search for any non-existing text to cancel the highlight.
 "vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
 "vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
