@@ -1,6 +1,6 @@
 vim built-in plugin package management directory:
-~/.vim/pack/vendor/start/nerdtree,
-~/.vim/pack/vendor/opt/foobar,
+~/.vim/pack/vendor/start/nerdtree ,
+~/.vim/pack/vendor/opt/foobar ,
 
 1. "vendor" is just a name, it can be named otherwise like: plugins, plugin_dir, etc.;
 2. "start" plugins under which is automatically loaded;

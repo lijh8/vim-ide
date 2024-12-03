@@ -11,13 +11,7 @@
 
 " multiple files in command line args
 " $ vim a.txt b.txt
-" :w , :w! , :wa , :q, :q!, :qa , :wqa ,
 " :args , :n , :N , :rewind ,
-" undo: u , redo: Ctrl-r , " set nocompatible
-" search  /  ?  n  N  *  #
-" case insensitive, /\cFOO , /\cfoo ,
-" vim command-line window history, :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
-" completion, Ctrl-p , Ctrl-n ,
 
 " multiple buffers
 " :e a.txt , :buffers , :buffer 3 , [3]Ctrl-^ , :bnext , :bprevious ,
@@ -27,18 +21,25 @@
 " gt , gT , [3]gt , :tabn [3] ,
 
 " multiple windows
-" C-W-H , C-W-L , C-W-J , C-W-K , C-W-S , C-W-V ,
+" C-W-H , C-W-L , C-W-J , C-W-K , C-W-S , C-W-V , :close ,
 " :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3 ,
-" :close ,
 " :echo winwidth(0) , :echo winheight(0) ,
+
+" :w , :w! , :wa , :q, :q!, :qa , :wqa ,
+" undo: u , redo: Ctrl-r , " set nocompatible
+
+" search / ? n N * #
+" case insensitive, /\cFOO , /\cfoo ,
+
+" vim command-line window history, :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
+" completion, Ctrl-p , Ctrl-n ,
 
 " search for a letter c in a line, fc ,
 " search forward ;
 " search backword ,
 
 " quickfix window
-" :copen
-" :make
+" :copen , :make
 " :grep -r "foo" *
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
