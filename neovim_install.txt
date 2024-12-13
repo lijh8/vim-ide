@@ -6,7 +6,6 @@ $ vi ~/.bashrc
 export PATH="$PATH:/opt/nvim-linux64/bin"
 $
 
-
 plugins:
 
 $ git clone --depth=1 https://github.com/neovim/nvim-lspconfig.git  ~/.config/nvim/pack/nvim/start/nvim-lspconfig/
@@ -20,11 +19,4 @@ $ nvim -u NONE -c "helptags ~/.config/nvim/pack/nvim/start/nvim-tree/doc/" -c q
 
 $ git clone --depth=1 https://github.com/nvim-treesitter/nvim-treesitter.git  ~/.config/nvim/pack/nvim/start/nvim-treesitter/
 $ nvim -u NONE -c "helptags ~/.config/nvim/pack/nvim/start/nvim-treesitter/doc/" -c q
-
-
-$ ls ~/.config/nvim/pack/nvim/start/nvim-lspconfig/
-lua  plugin  ..
-$ ls ~/.config/nvim/pack/nvim/start/nvim-treesitter/
-lua  plugin  ..
 $
-
