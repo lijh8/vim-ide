@@ -1,10 +1,10 @@
 vim built-in plugin package management directory:
-~/.vim/pack/vendor/start/nerdtree ,
-~/.vim/pack/vendor/opt/foobar ,
+  ~/.vim/pack/vendor/start/nerdtree ,
+  ~/.vim/pack/vendor/opt/foobar ,
 
 1. "vendor" is just a name, it can be named otherwise like: plugins, plugin_dir, etc.;
-2. "start" plugins under which is automatically loaded;
-3. "opt" plugins under which needs to be loaded in ~/.vimrc: packadd! foobar ;
+2. "start" - plugins under which is automatically loaded;
+3. "opt" - plugins under which needs to be loaded in ~/.vimrc: packadd! foobar ;
 
 " vim-lsp, vim-lsp-settings,
 " install for vim at "opt" directory and manually packadd,
@@ -23,12 +23,12 @@ $ git clone --depth=1 https://github.com/preservim/nerdtree.git ~/.vim/pack/vend
 $ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/nerdtree/doc" -c q
 
 // symbol outline
-$ git clone --depth=1 https://github.com/preservim/tagbar.git ~/.vim/pack/vendor/start/tagbar/
-$ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/tagbar/doc" -c q
+$ git clone --depth=1 https://github.com/preservim/tagbar.git ~/.vim/pack/vendor/opt/tagbar/
+$ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/tagbar/doc" -c q
 
 // automatic ctags manager
-$ git clone --depth=1 https://github.com/ludovicchabant/vim-gutentags.git ~/.vim/pack/vendor/start/gutentags/
-$ vim -u NONE -c "helptags ~/.vim/pack/vendor/start/gutentags/doc" -c q
+$ git clone --depth=1 https://github.com/ludovicchabant/vim-gutentags.git ~/.vim/pack/vendor/opt/gutentags/
+$ vim -u NONE -c "helptags ~/.vim/pack/vendor/opt/gutentags/doc" -c q
 
 // jump to definition
 $ git clone --depth=1 https://github.com/universal-ctags/ctags.git
