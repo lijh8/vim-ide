@@ -86,7 +86,7 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 4 " press t to open file in new tab,
 let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
-let g:netrw_winsize = 25 " percentage of the window size
+let g:netrw_winsize = 20 " percentage of the window size
 let g:netrw_mousemaps = 0
 
 " Termdebug
@@ -113,14 +113,18 @@ endif
 
 " Tagbar
 " https://github.com/preservim/tagbar/issues/851 ,
-"packadd! tagbar
-"autocmd QuitPre * qall
-"let g:tagbar_sort = 0
-"let g:tagbar_compact = 1
-"nnoremap <F3> :TagbarToggle<CR>
+"if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/tagbar/plugin/tagbar.vim'))
+"  packadd! tagbar
+"  autocmd QuitPre * qall
+"  let g:tagbar_sort = 0
+"  let g:tagbar_compact = 1
+"  nnoremap <F3> :TagbarToggle<CR>
+"endif
 
 " gutentags
 " ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i,
 " $ mkdir ~/myproject_root_dir/.git
-"packadd! gutentags
-"let g:gutentags_add_default_project_roots = 1
+"if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/gutentags/plugin/gutentags.vim'))
+"  packadd! gutentags
+"  let g:gutentags_add_default_project_roots = 1
+"endif
