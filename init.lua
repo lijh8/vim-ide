@@ -30,14 +30,4 @@ vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle<CR>")
 -- ~/.config/nvim/pack/nvim/start/nvim-treesitter/lua/nvim-treesitter/
 require'nvim-treesitter'.setup{}
 
--- ~/.config/nvim/pack/nvim/start/nvim-tree/lua/nvim-tree
---vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
---require("nvim-tree").setup({
---  view = {
---    width = 30,
---  },
---})
---vim.keymap.set("n", "<F2>", "<cmd>:NvimTreeToggle<CR>")
-
 --
