@@ -43,8 +43,7 @@
 " :grep -r "foo" *
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
-" g~w (toggle the case of the current word)
-" g~$ (toggle the case of text from the cursor to the end of the line)
+" toggle between lower and upper case:  g~w , g~$ , g~~ ,
 
 
 """ built-ins """
