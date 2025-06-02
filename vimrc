@@ -1,5 +1,5 @@
-" ~/.vimrc, ~/.virc, ~/.exrc,
-" vim.org , vimhelp.org ,
+" ~/.vimrc, ~/.virc, ~/.exrc
+" vim.org, vimhelp.org
 
 " $ vi ~/.bashrc
 " stty -ixon # terminal flow control Ctrl-s conflicts with vim, emacs
@@ -26,59 +26,55 @@
 " :echo winwidth(0) , :echo winheight(0) ,
 
 " :w , :w! , :wa , :q, :q!, :qa , :wqa ,
-" undo: u , redo: Ctrl-r , " set nocompatible
+" undo: u , redo: Ctrl-r , " vim-tiny: set nocompatible
 
-" search / ? n N * #
-" case insensitive, /\cFOO , /\cfoo ,
+" search : / ? n N * #
+" case in-sensitive \c : /\cFOO , /\cfoo ,
 
-" vim command-line window history, :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
-" completion, Ctrl-p , Ctrl-n ,
+" vim command window history :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
+" completion: Ctrl-p , Ctrl-n ,
 
-" search for a letter c in a line, fc ,
-" search forward ;
-" search backword ,
+" search for a single letter in a line with f command
+" backward , forward ;
+" search for letter o in "hello" : fo ,
 
 " quickfix window
-" :copen , :make
+" :copen , :make ,
 " :grep -r "foo" *
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
-" toggle between lower and upper case:  g~w , g~$ , g~~ ,
+" toggle between lower and upper case: g~w , g~$ , g~~ ,
 
 
 """ built-ins """
 
 filetype on
+filetype plugin on " netrw
 " :messages " check for messages with echom
 set autoindent
 "set colorcolumn=80
-set cursorline
+"set cursorline
 set expandtab
 set hlsearch
 set incsearch
-set mouse=a " selection: Win:shift+mouse, Mac:fn+mouse,
-set nocompatible " vim-tiny, u always undo, Ctrl-r always redo,
+set mouse=a " select to ctrl-c: win,linux:shift+mouse, mac:fn+mouse,
+set nocompatible " netrw, vim-tiny: undo, redo,
 set nowrapscan
 set number
 set ruler " vim-tiny, show current line number at status line
 set shiftwidth=2
 set tabstop=2
-set updatetime=100 " CursorHold, tagbar,
+set updatetime=200 " CursorHold, tagbar,
 "syntax off
 
-" auto save works with vim, not vim-tiny
-autocmd TextChanged,TextChangedI * if &modifiable && !&readonly && expand("%") != "" && &buftype == "" | silent write | endif
+" auto save
+autocmd TextChanged,TextChangedI * silent! update
 
-" highlight occurrences of word when cursor is inside the word,
-" cancel highlight when cursor is outside.
-"let old_isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\.*$^~[]') . '\>/' : '//') | let &iskeyword = old_isk
+" highlight occurrences of curent word. not in vim-tiny.
+" iskeyword is different in vi :help system, check :set iskeyword? ,
+let isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//') | let &iskeyword = isk
 
-" highlight selected text by search in visual mode(v), press * or # to search,
-" search for any non-existing text to cancel the highlight.
-"vnoremap <expr> * 'y:let @/ = @" <bar> normal! n<CR>'
-"vnoremap <expr> # 'y:let @/ = @" <bar> normal! N<CR>'
-
-" netrw
+" netrw. not in vim-tiny
 "autocmd VimEnter * Lexplore
 nnoremap <F2> :Lexplore<CR>
 let g:netrw_banner = 0

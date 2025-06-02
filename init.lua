@@ -6,6 +6,10 @@ vim.opt.runtimepath:append("~/.vim/after")
 vim.opt.packpath = vim.opt.runtimepath:get()
 vim.cmd("source ~/.vimrc")
 
+-- terminal
+-- split first, C-W-S , :term ,
+-- enter and leave term mode: i , C-\ C-n ,
+
 -- auto format on save by :w ,
 --vim.api.nvim_create_autocmd("BufWritePre", {
 --  pattern = "*",
