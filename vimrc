@@ -70,9 +70,9 @@ set updatetime=200 " CursorHold, tagbar
 " auto save
 autocmd TextChanged,TextChangedI * silent! update
 
-" highlight occurrences of curent word. not in vim-tiny
-" :set iskeyword? " check the difference in vim :help buffer
-let isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//') | let &iskeyword = isk
+" highlight current word. not in vim-tiny
+" :set isk? " it is difference in vim :help buffer
+autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
 
 " netrw. not in vim-tiny
 "autocmd VimEnter * Lexplore
