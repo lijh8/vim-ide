@@ -11,39 +11,39 @@
 
 " multiple files in command line args
 " $ vim a.txt b.txt
-" :args , :n , :N , :rewind ,
+" :args , :n , :N , :rewind
 
 " multiple buffers
-" :e a.txt , :buffers , :buffer 3 , [3]Ctrl-^ , :bnext , :bprevious ,
+" :e a.txt , :buffers , :buffer 3 , [3]Ctrl-^ , :bnext , :bprevious
 
 " multiple tabs
-" :tabnew [a.txt] , :tabedit [a.txt] ,
-" gt , gT , [3]gt , :tabn [3] ,
+" :tabnew [a.txt] , :tabedit [a.txt]
+" gt , gT , [3]gt , :tabn [3]
 
 " multiple windows
-" C-W-H , C-W-L , C-W-J , C-W-K , C-W-S , C-W-V , :close ,
-" :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3 ,
-" :echo winwidth(0) , :echo winheight(0) ,
+" C-W-H , C-W-L , C-W-J , C-W-K , C-W-S , C-W-V , :close
+" :resize 3 , :resize +3 , :vertical resize 3 , :vertical resize +3
+" :echo winwidth(0) , :echo winheight(0)
 
-" :w , :w! , :wa , :q, :q!, :qa , :wqa ,
+" :w , :w! , :wa , :q, :q!, :qa , :wqa
 " undo: u , redo: Ctrl-r , " vim-tiny: set nocompatible
 
 " search : / ? n N * #
 " case in-sensitive \c : /\cFOO , /\cfoo ,
 
-" vim command window history :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , * ,
-" completion: Ctrl-p , Ctrl-n ,
+" vim command window history :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , *
+" completion: Ctrl-p , Ctrl-n
 
 " search for a single letter in a line with f command
 " backward , forward ;
-" search for letter o in "hello" : fo ,
+" search for letter o in "hello" : fo
 
 " quickfix window
 " :copen , :make ,
 " :grep -r "foo" *
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
-" toggle between lower and upper case: g~w , g~$ , g~~ ,
+" toggle between lower and upper case: g~w , g~$ , g~~
 
 
 """ built-ins """
@@ -57,28 +57,28 @@ set autoindent
 set expandtab
 set hlsearch
 set incsearch
-set mouse=a " select to ctrl-c: win,linux:shift+mouse, mac:fn+mouse,
-set nocompatible " netrw, vim-tiny: undo, redo,
+set mouse=a " select to ctrl-c: win,linux:shift+mouse, mac:fn+mouse
+set nocompatible " netrw, vim-tiny: undo, redo
 set nowrapscan
 set number
 set ruler " vim-tiny, show current line number at status line
 set shiftwidth=2
 set tabstop=2
-set updatetime=200 " CursorHold, tagbar,
+set updatetime=200 " CursorHold, tagbar
 "syntax off
 
 " auto save
 autocmd TextChanged,TextChangedI * silent! update
 
-" highlight occurrences of curent word. not in vim-tiny.
-" iskeyword is different in vi :help system, check :set iskeyword? ,
+" highlight occurrences of curent word. not in vim-tiny
+" :set iskeyword? " check the difference in vim :help buffer
 let isk = &iskeyword | set iskeyword=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//') | let &iskeyword = isk
 
 " netrw. not in vim-tiny
 "autocmd VimEnter * Lexplore
 nnoremap <F2> :Lexplore<CR>
 let g:netrw_banner = 0
-let g:netrw_browse_split = 4 " press t to open file in new tab,
+let g:netrw_browse_split = 4 " press t to open file in new tab
 let g:netrw_list_hide = '.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20 " percentage of the window size
@@ -95,19 +95,19 @@ let g:netrw_mousemaps = 0
 """ non built-in plugins """
 
 " vim-lsp, vim-lsp-settings
-" install for vim at "opt" directory and manually packadd,
-" neovim built-in lsp: tagfunc is set to vim.lsp.tagfunc(),
+" install for vim at "opt" directory and manually packadd
+" neovim built-in lsp: tagfunc is set to vim.lsp.tagfunc()
 if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/vim-lsp/plugin/lsp.vim'))
   packadd! vim-lsp
   packadd! vim-lsp-settings
   set tagfunc=lsp#tagfunc
 
-  " auto format on save by :w ,
+  " auto format on save by :w
   autocmd BufWritePre * if exists(':LspDocumentFormat') | execute ':LspDocumentFormat' | endif
 endif
 
 " Tagbar
-" https://github.com/preservim/tagbar/issues/851 ,
+" https://github.com/preservim/tagbar/issues/851
 if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/tagbar/plugin/tagbar.vim'))
   packadd! tagbar
   autocmd QuitPre * qall
@@ -117,7 +117,7 @@ if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/tagbar/plugin/tagbar.vim
 endif
 
 " gutentags
-" ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i,
+" ctags: Ctrl-], Ctrl-t, Ctrl-o, Ctrl-i
 " $ mkdir ~/myproject_root_dir/.git
 if !has('nvim') && filereadable(expand('~/.vim/pack/*/*/gutentags/plugin/gutentags.vim'))
   packadd! gutentags
