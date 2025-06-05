@@ -29,7 +29,7 @@
 " undo: u , redo: Ctrl-r , " vim-tiny: set nocompatible
 
 " search : / ? n N * #
-" case in-sensitive \c : /\cFOO , /\cfoo ,
+" case in-sensitive \c : /\cFOO , /\cfoo
 
 " vim command window history :Ctrl-f , :Ctrl-p , :Ctrl-n , / , n , N , *
 " completion: Ctrl-p , Ctrl-n
@@ -39,7 +39,7 @@
 " search for letter o in "hello" : fo
 
 " quickfix window
-" :copen , :make ,
+" :copen , :make
 " :grep -r "foo" *
 " :grep -r "foo" * --exclude "*.swp" --exclude "*.d" --exclude "*.o"
 
@@ -72,7 +72,9 @@ autocmd TextChanged,TextChangedI * silent! update
 
 " highlight current word. not in vim-tiny
 " :set isk? " it is difference in vim :help buffer
-let old_isk = &isk | set isk=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//') | let &isk = old_isk
+" / is regex delimiter (e.g., /pattern/).
+" \ is regex metacharacter (e.g., \w, \<).
+let old_isk = &isk | set isk=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . escape(expand('<cword>'), '/\') . '\>/' : '//') | let &isk = old_isk
 
 " netrw. not in vim-tiny
 "autocmd VimEnter * Lexplore
