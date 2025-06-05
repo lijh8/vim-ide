@@ -72,7 +72,7 @@ autocmd TextChanged,TextChangedI * silent! update
 
 " highlight current word. not in vim-tiny
 " :set isk? " it is difference in vim :help buffer
-autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//')
+let old_isk = &isk | set isk=@,48-57,_,192-255 | autocmd CursorMoved,CursorMovedI * execute 'match Visual' (getline('.')[col('.')-1] =~# '\w' ? '/\<' . expand('<cword>') . '\>/' : '//') | let &isk = old_isk
 
 " netrw. not in vim-tiny
 "autocmd VimEnter * Lexplore
